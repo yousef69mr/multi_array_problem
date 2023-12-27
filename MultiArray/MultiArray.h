@@ -70,7 +70,11 @@ public:
             T* result = new T[size];
 
             if (startIndex > endIndex) {
-                reverse_copy(iterator->data.begin() + endIndex, iterator->data.begin() + startIndex + 1, iterator->data.begin());
+                //reverse_copy(iterator->data.begin() + endIndex, iterator->data.begin() + startIndex + 1, iterator->data.begin());
+                int j = 0;
+                for (int i = startIndex; i >= endIndex && j < size; i -= step, ++j) {
+                    result[j] = iterator->data[i];
+                }
             }
             else {
                 int j = 0;

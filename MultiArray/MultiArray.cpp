@@ -17,9 +17,12 @@ int main()
     cout << "Original Arrays:\n" << myArrays;
     
     cout << "###############\n";
-    int* subArray = myArrays.subArray("grades", 1, 3);
+    int* subArrayAsc = myArrays.subArray("grades", 1, 3);
     cout << "Subarray of 'grades' from index 1 to 3: ";
-    printArray(subArray,3);
+    printArray(subArrayAsc,3);
+    int* subArrayDesc = myArrays.subArray("grades", 3, 1);
+    cout << "Subarray of 'grades' from index 3 to 1: ";
+    printArray(subArrayDesc, 3);
     cout << "###############\n";
     myArrays.reverse("grades");
     cout << "Reversed 'grades' array:\n" << myArrays;
@@ -30,6 +33,7 @@ int main()
     cout << "Is 40 present in any array? " << (myArrays.search(40) ? "Yes" : "No") << endl;
     cout << "###############\n";
     cout << "Value at index 2 of 'grades': " << myArrays("grades", 2) << endl;
+    cout << "Value at index -1 of 'grades': " << myArrays("grades", -2) << endl;
     cout << "###############\n";
     
     MultiArray<int> splitArrays = myArrays.split("grades");
@@ -48,7 +52,8 @@ int main()
     cout << "###############\n";
 
 
-    delete[] subArray;
+    delete[] subArrayAsc;
+    delete[] subArrayDesc;
     delete[] mergedArray;
 
     return 0;
